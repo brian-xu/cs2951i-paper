@@ -1,5 +1,25 @@
 name: Publish
-
+inputs:
+  handouts:
+    description: "Space-separated list of Beamer files that handouts should be generated for"
+    required: false
+    default:
+  publish_dir:
+    description: "The directory that should be published with GitHub Pages"
+    required: false
+    default: dist
+  index_page:
+    description: "Path to the Markdown file that should be the main page"
+    required: false
+    default: README.md
+  pre_compile_command:
+    description: "Command to run before compiling LaTeX sources"
+    required: false
+    default: tlmgr update --self && tlmgr update --all
+outputs:
+  handouts:
+    description: "Newline-separated list of file paths to handouts"
+    value: ${{ steps.generate-handouts.outputs.handouts }}
 on:
   push:
     branches:
@@ -7,11 +27,28 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@main
-      - name: Compile and Deploy
-        uses: jonhue/pubtex-action@main
+      - uses: actions/checkout@v4
+
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+
+      - name: Move PDFs
+        run: mv ./*.pdf ${{ inputs.publish_dir }}
+        shell: bash
+
+      - name: Move index page
+        run: cp ${{ inputs.index_page }} ${{ inputs.publish_dir }}/index.md
+        shell: bash
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3.8.0
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          files: |
-            tex/*.*
+          publish_dir: ${{ inputs.publish_dir }}
+          allow_empty_commit: true
+          force_orphan: true
+          enable_jekyll: true
