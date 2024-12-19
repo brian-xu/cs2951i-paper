@@ -1,20 +1,18 @@
-\section{Formatting your paper}
-\label{sec:formatting}
+\section{Related works}
+\label{sec:related_work}
 
-Other similar works
+Much related work in video synthesis have tended to fall into either category of image-to-video methods or video diffusion models.
 
 %-------------------------------------------------------------------------
 \subsection{Image-to-Video Methods}
 
-ex. Endless Loops (Lightricks/MotionLeap), wombo.ai
+Image-to-video methods exist in two flavors: diffusion and non-diffusion based. Periodic patterns have been manipulated to generate seamlessly animated \emph{endless loops} \cite{Halperin_2021} in a non-machine learning approach, while neural network architecture has been employed in a \emph{conditional invertible neural network (cINN)} architecture \cite{dorkenwald2021stochasticimagetovideosynthesisusing}. 
+
+Diffusion based image-to-video methods rely on the remarkable performance of diffusion models in image synthesis by extending the existing text-to-video models with temporal-consistency attention layers for image-to-video synthesis and larger training datasets \cite{blattmann2023stablevideodiffusionscaling}. This approach has seen applications in character animation \cite{hu2024animateanyoneconsistentcontrollable} and fashion posing \cite{52750}. ControlNet \cite{zhang2023addingconditionalcontroltexttoimage} style approaches extended to video have also been succesfully built \cite{zhang2023controlvideotrainingfreecontrollabletexttovideo}.
 
 
 %-------------------------------------------------------------------------
 \subsection{Video Diffusion}
 
-literally countless examples
+With the success of text-to-image and image-to-video models, diffusion models have been successfully developed for training directly on videos themselves in the video-to-video mode. The major obstacle of temporal consistency and coherence has been tackled in a variety of different ways, typically relying on a pretrained diffusion model supplemented with carefully augmented attention layers and conditioning \cite{melnik2024videodiffusionmodelssurvey}. Controllable video synthesis that allows for user guidance in textual, spatial, and temporal forms have been explored by using motion vectors and spatio-temporal condition encoders \cite{wang2023videocomposercompositionalvideosynthesis}, propagating and injecting condition features through condition adapters \cite{wang2024easycontroltransfercontrolnetvideo}, and explicit motion modeling \cite{shi2024motioni2vconsistentcontrollableimagetovideo}
 
-%-------------------------------------------------------------------------
-\subsection{Pose Transfer}
-
-Lots of examples, Weakly Supervised 2D Human Pose Transfer needs to be cited
