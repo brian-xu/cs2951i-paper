@@ -27,7 +27,6 @@
 
 %%%%%%%%% TITLE - PLEASE UPDATE
 \title{SAM-IAM: Segmenting Arbitrary Motion for Image Applications Model}
-
 %%%%%%%%% AUTHORS - PLEASE UPDATE
 \author{Dominic Chui$^{\dagger}$\\
 Brown University
@@ -45,7 +44,16 @@ Brown University
 }
 
 \begin{document}
-\maketitle
+\twocolumn[{%
+            \renewcommand\twocolumn[1][]{#1}%
+            \maketitle
+            \includegraphics[width=.32\linewidth]{media/horse/ii.jpg}
+            \includegraphics[width=.32\linewidth]{media/horse/dv.png}
+            \includegraphics[width=.32\linewidth]{media/horse/ours.png}
+            % \vspace{-2em}
+            \captionof{figure}{Example output from our method.\vspace{1em}}
+            \label{fig:teaser}
+        }]
 \input{sec/0_abstract}
 \input{sec/1_intro}
 \input{sec/2_related_work}
