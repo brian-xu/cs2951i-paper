@@ -1,6 +1,6 @@
 \section{Conclusion}
 
-qualitative review of results and how we can improve
+We present SAM-IAM, a novel video synthesis model conditioned on an input image with the application of motion transfer from a given driving video to a single constant foreground object. SAM-IAM achieves a deep understanding of rigid motion transfer as a result of applying motion translation through bounding boxes to segmentation masks, including in cases of occlusion. This approach significantly outperforms the applicable baselines, constructing accurate and clear novel videos analogous to its respective inputs. 
 
 Future research could focus on several aspects to enhance the versatility of video-driven motion control in video generation. Refining the granularity of segmentation in motion objects extracted from driving videos could improve the quality of motion guidance used to condition the output video in our pipeline. Additionally, integrating a feature descriptor diffusion model \cite{Dutt_2024_CVPR, luo2024diffusion} could provide a more semantic mapping of motion details between objects, thereby strengthening the adaptability of motion transfers.
 
