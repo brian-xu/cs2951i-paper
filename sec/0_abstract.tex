@@ -1,5 +1,4 @@
 \begin{abstract}
-    We propose a method for transferring rigid motion from a driving video to a
-    target image.
+    We present a novel modular video synthesis model for transfering the rigid motion from a driving video to a single image. SAM-IAM generates a new video by combining the subject of the input image and the motion of the input video. In constrast with diffusion models that are text, image, and even video conditioned, this offers an alternative generative approach with much creative potential. By first segmenting the driving video, the motion of the selected subject is isolated and approximated using tracking bounding boxes that can then be iteratively applied to the segmented subject of the input image. The stitching together and conversion of the segmentation masks is performed with an off-the-shelf diffusion model to generate temporally and spatially coherent videos. SAM-IAM shows great potential in generating realistic video results in a modular pipeline whose individual components can be iteratively improved upon.
         {\let\thefootnote\relax\footnote{{$^{\dagger}$Equal contribution}}}
 \end{abstract}
