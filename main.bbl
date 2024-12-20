@@ -1,4 +1,4 @@
-\begin{thebibliography}{21}
+\begin{thebibliography}{22}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -12,6 +12,11 @@ Andreas Blattmann, Tim Dockhorn, Sumith Kulal, Daniel Mendelevitch, Maciej Kilia
 \bibitem[Dorkenwald et~al.(2021)Dorkenwald, Milbich, Blattmann, Rombach, Derpanis, and Ommer]{dorkenwald2021stochasticimagetovideosynthesisusing}
 Michael Dorkenwald, Timo Milbich, Andreas Blattmann, Robin Rombach, Konstantinos~G. Derpanis, and Björn Ommer.
 \newblock Stochastic image-to-video synthesis using cinns, 2021.
+
+\bibitem[Dutt et~al.(2024)Dutt, Muralikrishnan, and Mitra]{Dutt_2024_CVPR}
+Niladri~Shekhar Dutt, Sanjeev Muralikrishnan, and Niloy~J. Mitra.
+\newblock Diffusion 3d features (diff3f): Decorating untextured shapes with distilled semantic features.
+\newblock In \emph{Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}, pages 4494--4504, 2024.
 
 \bibitem[Feng et~al.(2023)Feng, Liu, Yu, Yao, Hui, Guo, Lin, Xue, Shi, Li, Li, Kang, Lei, Cui, Ren, and Xie]{feng2023dreamoving}
 Mengyang Feng, Jinlin Liu, Kai Yu, Yuan Yao, Zheng Hui, Xiefan Guo, Xianhui Lin, Haolan Xue, Chen Shi, Xiaowen Li, Aojie Li, Xiaoyang Kang, Biwen Lei, Miaomiao Cui, Peiran Ren, and Xuansong Xie.
