@@ -1,3 +1,12 @@
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=1\linewidth]{media/method.png}
+    % \vspace{-2em}
+    \captionof{figure}{An overview of our pipeline.}
+    \label{fig:method}
+\end{figure}
+
 \section{Method}
 
 We provide an overview of our method in \cref{fig:method}. Our inputs are a video (also referred to as the "driving video") and a static image.
@@ -34,14 +43,6 @@ For each frame in the driving video, we obtain a translation \textit{t} and chan
     \end{gathered}
     \label{eq:transformation}
 \end{equation}
-
-\twocolumn[{%
-            \renewcommand\twocolumn[1][]{#1}%
-            \includegraphics[width=1\linewidth]{media/method.png}
-            % \vspace{-2em}
-            \captionof{figure}{An overview of our pipeline.}
-            \label{fig:method}
-        }]
 
 To preserve the direction of motion while accounting for possible differences in size, we introduce scaling factors \textit{x} and \textit{y}.
 These scaling factors are equal to the height and width ratios of the bounding boxes for the input image and first frame of the driving video.

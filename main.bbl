@@ -1,18 +1,77 @@
-\begin{thebibliography}{2}
+\begin{thebibliography}{16}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
+\bibitem[Blattmann et~al.(2023)Blattmann, Dockhorn, Kulal, Mendelevitch, Kilian, Lorenz, Levi, English, Voleti, Letts, Jampani, and Rombach]{blattmann2023stablevideodiffusionscaling}
+Andreas Blattmann, Tim Dockhorn, Sumith Kulal, Daniel Mendelevitch, Maciej Kilian, Dominik Lorenz, Yam Levi, Zion English, Vikram Voleti, Adam Letts, Varun Jampani, and Robin Rombach.
+\newblock Stable video diffusion: Scaling latent video diffusion models to large datasets, 2023.
+
+\bibitem[Dorkenwald et~al.(2021)Dorkenwald, Milbich, Blattmann, Rombach, Derpanis, and Ommer]{dorkenwald2021stochasticimagetovideosynthesisusing}
+Michael Dorkenwald, Timo Milbich, Andreas Blattmann, Robin Rombach, Konstantinos~G. Derpanis, and Björn Ommer.
+\newblock Stochastic image-to-video synthesis using cinns, 2021.
+
+\bibitem[Halperin et~al.(2021)Halperin, Hakim, Vantzos, Hochman, Benaim, Sassy, Kupchik, Bibi, and Fried]{Halperin_2021}
+Tavi Halperin, Hanit Hakim, Orestis Vantzos, Gershon Hochman, Netai Benaim, Lior Sassy, Michael Kupchik, Ofir Bibi, and Ohad Fried.
+\newblock Endless loops: detecting and animating periodic patterns in still images.
+\newblock \emph{ACM Transactions on Graphics}, 40\penalty0 (4):\penalty0 1–12, 2021.
+
+\bibitem[Hertzmann et~al.(2001)Hertzmann, Jacobs, Oliver, Curless, and Salesin]{2001hertzman}
+Aaron Hertzmann, Charles~E. Jacobs, Nuria Oliver, Brian Curless, and David~H. Salesin.
+\newblock Image analogies.
+\newblock page 327–340, 2001.
+
+\bibitem[Ho et~al.(2020)Ho, Jain, and Abbeel]{ho2020denoisingdiffusionprobabilisticmodels}
+Jonathan Ho, Ajay Jain, and Pieter Abbeel.
+\newblock Denoising diffusion probabilistic models, 2020.
+
+\bibitem[Ho et~al.(2022)Ho, Salimans, Gritsenko, Chan, Norouzi, and Fleet]{ho2022videodiffusionmodels}
+Jonathan Ho, Tim Salimans, Alexey Gritsenko, William Chan, Mohammad Norouzi, and David~J. Fleet.
+\newblock Video diffusion models, 2022.
+
+\bibitem[Hu et~al.(2024)Hu, Gao, Zhang, Sun, Zhang, and Bo]{hu2024animateanyoneconsistentcontrollable}
+Li Hu, Xin Gao, Peng Zhang, Ke Sun, Bang Zhang, and Liefeng Bo.
+\newblock Animate anyone: Consistent and controllable image-to-video synthesis for character animation, 2024.
+
+\bibitem[Karras et~al.(2023)Karras, Hołyński, Wang, and Kemelmacher-Shlizerman]{52750}
+Johanna Karras, Aleksander Hołyński, Ting-Chun Wang, and Ira Kemelmacher-Shlizerman.
+\newblock Dreampose: Fashion video synthesis with stable diffusion.
+\newblock 2023.
+
+\bibitem[Melnik et~al.(2024)Melnik, Ljubljanac, Lu, Yan, Ren, and Ritter]{melnik2024videodiffusionmodelssurvey}
+Andrew Melnik, Michal Ljubljanac, Cong Lu, Qi Yan, Weiming Ren, and Helge Ritter.
+\newblock Video diffusion models: A survey, 2024.
+
 \bibitem[Ravi et~al.(2024)Ravi, Gabeur, Hu, Hu, Ryali, Ma, Khedr, R{\"a}dle, Rolland, Gustafson, Mintun, Pan, Alwala, Carion, Wu, Girshick, Doll{\'a}r, and Feichtenhofer]{ravi2024sam2}
 Nikhila Ravi, Valentin Gabeur, Yuan-Ting Hu, Ronghang Hu, Chaitanya Ryali, Tengyu Ma, Haitham Khedr, Roman R{\"a}dle, Chloe Rolland, Laura Gustafson, Eric Mintun, Junting Pan, Kalyan~Vasudev Alwala, Nicolas Carion, Chao-Yuan Wu, Ross Girshick, Piotr Doll{\'a}r, and Christoph Feichtenhofer.
 \newblock Sam 2: Segment anything in images and videos.
 \newblock \emph{arXiv preprint arXiv:2408.00714}, 2024.
 
+\bibitem[Shi et~al.(2024)Shi, Huang, Wang, Bian, Li, Zhang, Zhang, Cheung, See, Qin, Dai, and Li]{shi2024motioni2vconsistentcontrollableimagetovideo}
+Xiaoyu Shi, Zhaoyang Huang, Fu-Yun Wang, Weikang Bian, Dasong Li, Yi Zhang, Manyuan Zhang, Ka~Chun Cheung, Simon See, Hongwei Qin, Jifeng Dai, and Hongsheng Li.
+\newblock Motion-i2v: Consistent and controllable image-to-video generation with explicit motion modeling, 2024.
+
+\bibitem[Wang et~al.(2024)Wang, Gu, Hu, Zhao, Guo, Han, Xu, and Liang]{wang2024easycontroltransfercontrolnetvideo}
+Cong Wang, Jiaxi Gu, Panwen Hu, Haoyu Zhao, Yuanfan Guo, Jianhua Han, Hang Xu, and Xiaodan Liang.
+\newblock Easycontrol: Transfer controlnet to video diffusion for controllable generation and interpolation, 2024.
+
+\bibitem[Wang et~al.(2023)Wang, Yuan, Zhang, Chen, Wang, Zhang, Shen, Zhao, and Zhou]{wang2023videocomposercompositionalvideosynthesis}
+Xiang Wang, Hangjie Yuan, Shiwei Zhang, Dayou Chen, Jiuniu Wang, Yingya Zhang, Yujun Shen, Deli Zhao, and Jingren Zhou.
+\newblock Videocomposer: Compositional video synthesis with motion controllability, 2023.
+
 \bibitem[{Wang, Xiang and Yuan, Hangjie and Zhang, Shiwei and Chen, Dayou and Wang, Jiuniu, and Zhang, Yingya, and Shen, Yujun, and Zhao, Deli and Zhou, Jingren}(2023)]{2023videocomposer}
 {Wang, Xiang and Yuan, Hangjie and Zhang, Shiwei and Chen, Dayou and Wang, Jiuniu, and Zhang, Yingya, and Shen, Yujun, and Zhao, Deli and Zhou, Jingren}.
 \newblock Videocomposer: Compositional video synthesis with motion controllability.
 \newblock \emph{arXiv preprint arXiv:2306.02018}, 2023.
+
+\bibitem[Zhang et~al.(2023{\natexlab{a}})Zhang, Rao, and Agrawala]{zhang2023addingconditionalcontroltexttoimage}
+Lvmin Zhang, Anyi Rao, and Maneesh Agrawala.
+\newblock Adding conditional control to text-to-image diffusion models, 2023{\natexlab{a}}.
+
+\bibitem[Zhang et~al.(2023{\natexlab{b}})Zhang, Wei, Jiang, Zhang, Zuo, and Tian]{zhang2023controlvideotrainingfreecontrollabletexttovideo}
+Yabo Zhang, Yuxiang Wei, Dongsheng Jiang, Xiaopeng Zhang, Wangmeng Zuo, and Qi Tian.
+\newblock Controlvideo: Training-free controllable text-to-video generation, 2023{\natexlab{b}}.
 
 \end{thebibliography}
