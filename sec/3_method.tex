@@ -1,19 +1,62 @@
 \section{Method}
 
-Code overview and such
+We provide an overview of our method in \cref{fig:method}. Our inputs are a video (also referred to as the "driving video") and a static image.
+We apply an off-the-shelf image and video segmentation model\cite{ravi2024sam2} to obtain binary segmentation masks of the foreground object.
+For the video, we obtain a segmentation mask for each frame, tracking the relative motion of the masked object.
+We use a bounding box approach to calculate the change in position and scale for each frame in the video mask.
+Given this per-frame deformation, we can sequentially modify the segmentation mask of the input image to replicate motion analogous to the driving video.
+Finally, we use the motion-transferred video along with the original image as inputs for a conditional video diffusion model\cite{2023videocomposer}.
 
 %-------------------------------------------------------------------------
-\subsection{Semantic Segmentation}
+\subsection{Image and Video Segmentation}
 
-via SAM2
+We use an off-the-shelf segmentation model\cite{ravi2024sam2} for both the image and the video.
+Due to the importance of obtaining proper segmentation masks, we elect to involve the user during this step.
+We present the user a GUI (see \cref{fig:ui}), allowing them to interactively select which foreground objects are segmented.
 
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=1\linewidth]{media/ui.png}
+    \caption{A screenshot of our segmentation UI.}
+    \label{fig:ui}
+\end{figure}
 
 %-------------------------------------------------------------------------
-\subsection{Arbitrary Motion Transfer}
+\subsection{Bounding Box Motion Transfer}
 
-via encoder/decoder
 
-%-------------------------------------------------------------------------
-\subsection{Diffusion Inpainting}
+Given a binary segmentation mask, it is trivial to draw a bounding box around it. We can obtain a rough estimate for the relative motion of a video by calculating the change in position and scale between each frame.
+For each frame in the driving video, we obtain a translation \textit{t} and change in scale \textit{s} of its corresponding bounding box, relative to the first frame.
+\begin{equation}
+    \begin{gathered}
+        t_{n} = (bbox_{vid_n}.x-bbox_{vid_0}.x, bbox_{vid_n}.y-bbox_{vid_0}.y) \\
+        s_{n} = (\frac{bbox_{vid_n}.width}{bbox_{vid_0}.width},\frac{bbox_{vid_n}.height}{bbox_{vid_0}.height})
+    \end{gathered}
+    \label{eq:transformation}
+\end{equation}
 
-via video diffusion
+\twocolumn[{%
+            \renewcommand\twocolumn[1][]{#1}%
+            \includegraphics[width=1\linewidth]{media/method.png}
+            % \vspace{-2em}
+            \captionof{figure}{An overview of our pipeline.}
+            \label{fig:method}
+        }]
+
+To preserve the direction of motion while accounting for possible differences in size, we introduce scaling factors \textit{x} and \textit{y}.
+These scaling factors are equal to the height and width ratios of the bounding boxes for the input image and first frame of the driving video.
+\begin{equation}
+    \begin{gathered}
+        x = \frac{bbox_{img}.width}{bbox_{vid}.width} \\ y = \frac{bbox_{img}.height}{bbox_{vid}.height}
+    \end{gathered}
+    \label{eq:scaling}
+\end{equation}
+
+We sequentially apply the adjusted set of translations and scales to the mask of the input image to obtain a target video \textit{V}, which we use as input for a conditional diffusion model\cite{2023videocomposer}.
+\begin{equation}
+    \begin{gathered}
+        V_{n}.size = bbox_{img}.size*s_{n}*(x,y) \\
+        V_{n}.pos = bbox_{img}.pos + t_{n}*(x,y) \\
+        V_{n}.pos = V_{n}.pos - \frac{(V_{n}.size-bbox_{n}.size)}{2}
+    \end{gathered}
+\end{equation}
