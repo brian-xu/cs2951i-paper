@@ -38,8 +38,8 @@ Given a binary segmentation mask, it is trivial to draw a bounding box around it
 For each frame in the driving video, we obtain a translation \textit{t} and change in scale \textit{s} of its corresponding bounding box, relative to the first frame.
 \begin{equation}
     \begin{gathered}
-        t_{n} = (bbox_{vid_n}.x-bbox_{vid_0}.x, bbox_{vid_n}.y-bbox_{vid_0}.y) \\
-        s_{n} = (\frac{bbox_{vid_n}.width}{bbox_{vid_0}.width},\frac{bbox_{vid_n}.height}{bbox_{vid_0}.height})
+        t_{n} = (\text{bbox}_{\text{vid}_n}.x-\text{bbox}_{\text{vid}_0}.x, \text{bbox}_{\text{vid}_n}.y-\text{bbox}_{\text{vid}_0}.y) \\
+        s_{n} = (\frac{\text{bbox}_{\text{vid}_n}.width}{\text{bbox}_{\text{vid}_0}.width},\frac{\text{bbox}_{\text{vid}_n}.height}{\text{bbox}_{\text{vid}_0}.height})
     \end{gathered}
     \label{eq:transformation}
 \end{equation}
@@ -48,7 +48,7 @@ To preserve the direction of motion while accounting for possible differences in
 These scaling factors are equal to the height and width ratios of the bounding boxes for the input image and first frame of the driving video.
 \begin{equation}
     \begin{gathered}
-        x = \frac{bbox_{img}.width}{bbox_{vid}.width} \\ y = \frac{bbox_{img}.height}{bbox_{vid}.height}
+        x = \frac{\text{bbox}_\text{img}.width}{\text{bbox}_\text{vid}.width} \\ y = \frac{\text{bbox}_\text{img}.height}{\text{bbox}_\text{vid}.height}
     \end{gathered}
     \label{eq:scaling}
 \end{equation}
@@ -56,8 +56,8 @@ These scaling factors are equal to the height and width ratios of the bounding b
 We sequentially apply the adjusted set of translations and scales to the mask of the input image to obtain a target video \textit{V}, which we use as input for a conditional diffusion model\cite{2023videocomposer}.
 \begin{equation}
     \begin{gathered}
-        V_{n}.size = bbox_{img}.size*s_{n}*(x,y) \\
-        V_{n}.pos = bbox_{img}.pos + t_{n}*(x,y) \\
-        V_{n}.pos = V_{n}.pos - \frac{(V_{n}.size-bbox_{n}.size)}{2}
+        V_{n}.size = \text{bbox}_\text{img}.size*s_{n}*(x,y) \\
+        V_{n}.pos = \text{bbox}_\text{img}.pos + t_{n}*(x,y) \\
+        V_{n}.pos = V_{n}.pos - \frac{(V_{n}.size-\text{bbox}_{n}.size)}{2}
     \end{gathered}
 \end{equation}
