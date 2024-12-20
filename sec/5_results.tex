@@ -1,7 +1,14 @@
-\section{Results}
+\section{Discussion}
 
+\subsection{Results}
 We demonstrate the performance of our approach against our baseline, VideoComposer, a controllable video diffusion model. In Table 1, we demonstrate our results through a side-by-side comparison with VideoComposer. As shown, the existing baseline fails to capture the intrinsics of the subject's change in motion, and even in some cases fails to comprehend the motion dynamics of the original driving video. We see in parachute example that SAM-IAM captures the shape of the parachute throughout the length of the projected motion, whereas VideoComposer suffers from shape deformation. Furthermore, the soccer ball example demonstrates the ability of SAM-IAM to comprehend more complex motions as the driving video illustrates a car traveling across the frame from right to left, with the addition of forward motion towards the camera in the beginning frames. However, VideoComposer fails to correctly capture the scale of the input image while adding additional artifacts to the resulting video.
+
 In the equestrian example, we qualitatively compare SAM-IAM and VideoComposer on a driving video that exhibits human motion in the form of jumping. While VideoComposer adds artifacts to the foreground and background of the frame and incorrectly adds rotation to the target object's movement, SAM-IAM cleanly translates the movement of the jumping rollerblader to the horse in the same arcing motion.
+
 In the case of occlusion, SAM-IAM achieves an accurate representation by adding another moving vehicle to obstruct the view of the car, analogous to the way the plant occludes the motorcycle in the driving video. In contrast, VideoComposer exhibits multiple colliding vehicles to its resulting video, demonstrating a lack of understanding of occlusion. 
 
-compare with video diffusion models and potentially wombo ai if possible?
+\subsection{Method Limitations}
+
+We initially decided on an autoencoder to understand the motion demonstrated in the driving video. The autoencoder is passed the input image and frames \textit{n} and \textit{n + 1} of the driving video, and creates a difference map from the video frames to pass into the encoder. The encoder outputs the latent code, which, with the input frame, would be passed into the decoder to reconstruct the predicted next image frame. However, after training and testing this model on the DAVIS dataset, we found that the autoencoder was greatly overfitting because transferring motion across different classes of object requires a deep understanding of their geometric properties and our frame-by-frame approach led to unstable and inconsistent motions. We theorize these shortcomings could be alleviated with a stronger dataset containing paired data for the type of ‘loose’ motion transfer we want and a loss function that captures the intricacies of the underlying motion rather than basic change in position across frames. 
+
+Due to the modal nature of our pipeline, we were easily able to pivot and replace the autoencoder with the bounding box method outlined in our paper to track the motion in the driving video. 
